@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworking.h>
 
 @interface AppDelegate ()
 
@@ -16,6 +17,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+#pragma mark  AFNetworking  
+    
+    _mySession=[[AFHTTPSessionManager alloc]init];
+    _mySession.requestSerializer=[AFJSONRequestSerializer serializer];
+    // SSL HTTPS
+       _mySession.securityPolicy.allowInvalidCertificates=YES;
+    //[AFXMLParserResponseSerializer serializer];
+    //
+    _mySession.responseSerializer=[AFJSONResponseSerializer serializer];
+    
+    
+    
     // Override point for customization after application launch.
     return YES;
 }
